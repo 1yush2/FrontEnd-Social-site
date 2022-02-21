@@ -17,51 +17,55 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
+
   logoLg: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
   },
+
   logoSm: {
     display: "block",
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
+
   search: {
     display: "flex",
     alignItems: "center",
     backgroundColor: alpha(theme.palette.common.white, 0.15),
+    borderRadius: "20px",
+    width: "55%",
+
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    borderRadius: "20px",
-    width: "55%",
+
     [theme.breakpoints.down("sm")]: {
       display: (props) => (props.open ? "flex" : "none"),
       width: "50%",
     },
   },
-  cancelIcon: {
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
-  },
+
   input: {
     color: "white",
     marginLeft: theme.spacing(1),
   },
+
   searchButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
+
   icons: {
     alignItems: "center",
     display: (props) => (props.open ? "none" : "flex"),
   },
+
   badge: {
     marginRight: theme.spacing(2),
   },
@@ -76,11 +80,14 @@ export default function NavBar() {
         <Typography variant="h6" className={classes.logoLg}>
           Aayush Site
         </Typography>
+
         <Typography variant="h6" className={classes.logoSm}>
           Iyush
         </Typography>
+
         <div className={classes.search}>
           <Search />
+
           <InputBase
             placeholder="Search..."
             className={classes.input}
@@ -88,9 +95,7 @@ export default function NavBar() {
               <InputAdornment position="end">
                 <Cancel
                   sx={{
-                    "@media screen and (min-width: 600px)": {
-                      display: "none",
-                    },
+                    display: { md: "none" },
                   }}
                   onClick={() => setOpen(false)}
                 />
@@ -98,21 +103,21 @@ export default function NavBar() {
             }
           />
         </div>
+
         <div className={classes.icons}>
           <Search
-            sx={{
-              "@media screen and (min-width: 600px)": {
-                display: "none",
-              },
-            }}
+            sx={{ display: { md: "none", } }}
             onClick={() => setOpen(true)}
           />
+
           <Badge badgeContent={4} color="secondary" className={classes.badge}>
             <Mail />
           </Badge>
+
           <Badge badgeContent={2} color="secondary" className={classes.badge}>
             <Notifications />
           </Badge>
+
           <Avatar>Aa</Avatar>
         </div>
       </Toolbar>
