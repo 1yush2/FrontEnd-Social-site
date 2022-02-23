@@ -5,6 +5,7 @@ import { Grid } from "@mui/material";
 import LeftNav from "./components/LeftNav";
 import Feedbox from "./components/Feedbox";
 import RightNav from "./components/RIghtNav";
+import Dialer from "./components/Dialer";
 
 const useStyles = makeStyles((theme) => ({
   rightNavigation: {
@@ -30,6 +31,7 @@ function App() {
           <RightNav />
         </Grid>
       </Grid>
+      <Dialer />
     </div>
   );
 }
